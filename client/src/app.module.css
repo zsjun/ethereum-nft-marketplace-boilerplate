@@ -18,3 +18,31 @@
   overflow: auto;
   border-radius: 1rem;
 }
+
+.header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+  padding: 0 10px;
+  box-shadow: 0 1px 10px rgb(151 164 175 / 10%);
+}
+.content {
+  display: flex;
+  justify-content: center;
+  color: #041836;
+  margin-top: 130px;
+  padding: 10px;
+}
+
+.headerRight {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 700;
+}
