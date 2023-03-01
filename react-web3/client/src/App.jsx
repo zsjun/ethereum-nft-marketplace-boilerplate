@@ -3,9 +3,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Menu, Layout } from "antd";
 import Balances from "components/Balances";
-import NFTTokenIds from "components/NFTTokenIds";
 import Logo from "./Logo";
 import Footer from "./Footer";
+
+import { createClient, configureChains, WagmiConfig } from "wagmi";
+import { publicProvider } from "wagmi/providers/public";
+import { mainnet } from "wagmi/chains";
+
+import Signin from "components/signin";
+import User from "components/user";
 
 import styles from "./app.module.css";
 
@@ -13,6 +19,14 @@ const router = createBrowserRouter([
   {
     path: "/balances",
     element: <Balances />,
+  },
+  {
+    path: "/signin",
+    element: <Signin />,
+  },
+  {
+    path: "/user",
+    element: <User />,
   },
   // {
   //   path: "/NFTMarketPlace",
@@ -26,13 +40,25 @@ const { Header, Content } = Layout;
 
 function App() {
   const [inputValue, setInputValue] = useState("explore");
+  const { provider, webSocketProvider } = configureChains(
+    [mainnet],
+    [publicProvider()]
+  );
+
+  const client = createClient({
+    provider,
+    webSocketProvider,
+    autoConnect: true,
+  });
   return (
     <div className={styles.rootWrap}>
       <Header className={styles.header}>
         <Logo />
       </Header>
       <Content className={styles.content}>
-        <RouterProvider router={router} />
+        <WagmiConfig client={client}>
+          <RouterProvider router={router} />
+        </WagmiConfig>
       </Content>
       <Footer></Footer>
     </div>
