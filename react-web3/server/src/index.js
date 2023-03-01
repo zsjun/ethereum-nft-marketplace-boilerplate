@@ -24,16 +24,15 @@ const chain = EvmChain.ETHEREUM;
 app.get("/balances", async (req, res) => {
   try {
     // Promise.all() for receiving data async from two endpoints
-    const [nativeBalance, tokenBalances] = await Promise.all([
-      Moralis.EvmApi.balance.getNativeBalance({
-        chain,
-        address,
-      }),
-      Moralis.EvmApi.token.getWalletTokenBalances({
-        chain,
-        address,
-      }),
-    ]);
+    const nativeBalance = await Moralis.EvmApi.balance.getNativeBalance({
+      chain,
+      address,
+    });
+    const tokenBalances = await Moralis.EvmApi.token.getWalletTokenBalances({
+      chain,
+      address,
+    });
+
     res.status(200).json({
       // formatting the output
       address,
@@ -48,9 +47,10 @@ app.get("/balances", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// app.get("/", (req, res) => {
+//   console.log(123);
+//   res.send("Hello World!");
+// });
 
 const startServer = async () => {
   await Moralis.start({
