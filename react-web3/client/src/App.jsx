@@ -6,9 +6,8 @@ import Balances from "components/Balances";
 import Logo from "./Logo";
 import Footer from "./Footer";
 
-import { createClient, configureChains, WagmiConfig } from "wagmi";
+import { createClient, configureChains, WagmiConfig, mainnet } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
-import { mainnet } from "wagmi/chains";
 
 import Signin from "components/signin";
 import User from "components/user";
@@ -57,7 +56,8 @@ function App() {
       </Header>
       <Content className={styles.content}>
         <WagmiConfig client={client}>
-          <RouterProvider router={router} />
+          {/* <RouterProvider router={router} /> */}
+          <Signin></Signin>
         </WagmiConfig>
       </Content>
       <Footer></Footer>
