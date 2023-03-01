@@ -46,3 +46,8 @@
   font-size: 15px;
   font-weight: 700;
 }
+.rootWrap {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
