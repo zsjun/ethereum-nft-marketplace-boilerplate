@@ -3,6 +3,10 @@
 # dependencies
 /client/node_modules
 /server/node_modules
+/next-web3/node_modules
+/ethereum-boilerplate/node_modules
+/next-web3/.next
+ /ethereum-boilerplate/.next
 /.pnp
 .pnp.js
 

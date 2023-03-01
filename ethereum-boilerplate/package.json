@@ -1,0 +1,39 @@
+{
+  "name": "ethereum-boilerplate",
+  "version": "2.0.0",
+  "private": true,
+  "homepage": "https://eth-boilerplate.vercel.app/",
+  "scripts": {
+    "format": "prettier . \"**/*.+(js|ts|json)\" --write --ignore-path .gitignore",
+    "format:check": "prettier . \"**/*.+(js|ts|json)\" --check --ignore-path .gitignore",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@moralisweb3/next": "^2.14.3",
+    "@web3uikit/core": "^0.2.47",
+    "@web3uikit/icons": "^0.2.46",
+    "ethers": "^5.7.2",
+    "framer-motion": "^10.0.1",
+    "moralis": "^2.14.3",
+    "next": "^13.2.2",
+    "next-auth": "^4.19.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "wagmi": "^0.11.7"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.28",
+    "typescript": "4.9.5"
+  },
+  "engines": {
+    "node": ">=18.12.0",
+    "npm": ">=6.0.0"
+  }
+}

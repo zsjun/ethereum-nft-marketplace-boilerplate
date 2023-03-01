@@ -10,6 +10,11 @@ import {
   Navigate,
 } from "react-router-dom";
 import Logo from "./Logo";
+// import { createClient, configureChains, WagmiConfig } from "wagmi";
+// import { publicProvider } from "wagmi/providers/public";
+// import { mainnet } from "wagmi/chains";
+// import Signin from "./Signin";
+// import User from "./User";
 // import Account from "components/Account";
 // import Chains from "components/Chains";
 // import NFTBalance from "components/NFTBalance";
@@ -31,6 +36,17 @@ const App = ({ isServerInfo }) => {
   //   useMoralis();
 
   const [inputValue, setInputValue] = useState("explore");
+
+  const { provider, webSocketProvider } = configureChains(
+    [mainnet],
+    [publicProvider()]
+  );
+
+  const client = createClient({
+    provider,
+    webSocketProvider,
+    autoConnect: true,
+  });
 
   // useEffect(() => {
   //   if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading) enableWeb3();
