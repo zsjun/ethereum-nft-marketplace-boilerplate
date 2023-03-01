@@ -22,7 +22,7 @@ import Logo from "./Logo";
 import { Menu, Layout } from "antd";
 // import SearchCollections from "components/SearchCollections";
 // import NativeBalance from "components/NativeBalance";
-import Balances from "components/balances";
+import Balances from "components/Balances";
 // import Text from "antd/lib/typography/Text";
 // import NFTMarketTransactions from "components/NFTMarketTransactions";
 
@@ -37,16 +37,16 @@ const App = ({ isServerInfo }) => {
 
   const [inputValue, setInputValue] = useState("explore");
 
-  const { provider, webSocketProvider } = configureChains(
-    [mainnet],
-    [publicProvider()]
-  );
+  // const { provider, webSocketProvider } = configureChains(
+  //   [mainnet],
+  //   [publicProvider()]
+  // );
 
-  const client = createClient({
-    provider,
-    webSocketProvider,
-    autoConnect: true,
-  });
+  // const client = createClient({
+  //   provider,
+  //   webSocketProvider,
+  //   autoConnect: true,
+  // });
 
   // useEffect(() => {
   //   if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading) enableWeb3();
